@@ -30,6 +30,7 @@
  * @return {number}
  */
 var removeElement = function (nums, val) {
+  // solution 1 遍歷陣列
   // for (let i = nums.length - 1; i > -1; i--) {
   //   if (nums[i] === val) {
   //     nums.splice(i,1)
@@ -41,17 +42,22 @@ var removeElement = function (nums, val) {
   //   console.log(item)
   // })
 
-  var count = 0;
-  for (var i = 0, max = nums.length; i < max; i++) {
+  // solution 2 用index進行搬移整理
+  let moveIndex = 0                         // 紀錄不用刪去的元素應該搬移的index
+  for (let i = 0; i < nums.length; i++) {   
 
-    if (nums[i] != val) {
-      nums[count++] = nums[i];
-      
+    if (nums[i] != val) {                   // 不用刪去便進行搬移，index+1
+      nums[moveIndex] = nums[i]
+      moveIndex++
     }
+
   }
-  console.log(count)
-  return count;
+
+  nums.splice(moveIndex)                    // 搬移完成，index之後的元素不需要
+
+  return moveIndex                          // 題目要回傳長度
 
 }
 
 removeElement([3, 2, 2, 3],3)
+removeElement([0, 1, 2, 2, 3, 0, 4, 2],2)
