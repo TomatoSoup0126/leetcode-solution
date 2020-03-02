@@ -29,24 +29,24 @@ var plusOne = function (digits) {
   // return (Number(digits.join('')) + 1).toString().split('')  // 單純陣列轉Number後操作，有極限存在
 
 
-  for (let index = digits.length - 1; index >= 0; index--) {
+  for (let index = digits.length - 1; index >= 0; index--) {        //for loop 從陣列最末端開始操作＝從個位數開始
+     
+    if (digits[index] != 9) {                                       //如果該位不為9，表示不需要進位，直接＋1即可
 
-    if (digits[index] != 9) {
-
-      digits[index]++
+      digits[index]++                                               //+1後跳出迴圈
       break
 
     } else {
       
-      digits[index] = 0
+      digits[index] = 0                                              //該位為9，讓他變0，藉由迴圈進到下一位
 
     }
     
   }
 
 
-  if (digits[0] === 0) {
-    digits.unshift(1)
+  if (digits[0] === 0) {                                              //例外的進位進到陣列需增加長度，表示該陣列[0]為0
+    digits.unshift(1)                                                 //陣列最前插入1表示進位
   }
   
 
