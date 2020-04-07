@@ -28,9 +28,10 @@ var maxSubArray = function (nums) {
     nums[i] = Math.max(nums[i], nums[i] + nums[i - 1])    // 現在index上的值，現在index上的值加上前一index的值，兩者比較取較大值
                                                           // 較大值取代該index上的值，因是連續比較下來，可看作目前到此index中的最大值加總
   }
-
+  console.log(nums)
   return Math.max(...nums)                                // 展開nums，取最大值回傳
 
 }
 
-maxSubArray([-2, 1, -3, 4, -1, 2, 1, -5, 4])
+console.log(maxSubArray([-2, 1, -3, 4, -1, 2, 1, -5, 4]))
+
